@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tree traversal</title>
+</head>
+<body>
+</body>
+<script>
+class Node {
+	constructor(x) {
+		this.y = x;
+		this.left = null;
+		this.right = null;
+	}
+}
+
+	var root = null;
+
+	
+	function Postorder(node) {
+		if (node == null)
+			return;
+
+		Postorder(node.left);
+
+		Postorder(node.right);
+
+		console.log(node.y + " ");
+	}
+
+	function Inorder(node) {
+		if (node == null)
+			return;
+
+		Inorder(node.left);
+
+		console.log(node.y + " ");
+
+		Inorder(node.right);
+	}
+
+	function Preorder(node) {
+		if (node == null)
+			return;
+
+		console.log(node.y + " ");
+
+		Preorder(node.left);
+
+		Preorder(node.right);
+		
+	}
+	
+	
+		root = new Node(1);
+		root.left = new Node(2);
+		root.right = new Node(3);
+		root.left.left = new Node(4);
+		root.left.right = new Node(5);
+
+		console.log("Preorder traversal");
+		Preorder(root);
+
+		console.log("Inorder traversal");
+		Inorder(root);
+
+		console.log("Postorder traversal ");
+		Postorder(root);
+
+</script>
+</html>
